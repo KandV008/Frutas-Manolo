@@ -1,5 +1,16 @@
 # Frutas Manolo
 
+## Table of Contents
+
+* [Presentation](#presentation)
+  * [Autors](#autors)
+* [Start-up of the aplication](#start-up-of-the-aplication)
+* [About the page](#about-the-page)
+  * [Technical Features](#technical-features)
+  * [Preview](#preview)
+
+## Presentation
+
 This is the final project of the **Web Fundamentals**.
 
 The objective was to create a **Web Aplication with AJAX**.
@@ -8,6 +19,30 @@ The objective was to create a **Web Aplication with AJAX**.
 * @keyland71
 * @TarekElshami
 * @KandV008
+
+---
+
+## Start-up of the aplication
+
+First, clone the repository and cd to the project.
+
+```
+  git clone https://github.com/KandV008/Frutas-Manolo.git
+  cd Frutas-Manolo
+```
+
+Second, install all the modules.
+
+```
+  npm install
+```
+
+Third, cd to src and execute app.js.
+
+```
+  cd src
+  node app.js
+```
 
 ---
 
