@@ -1,0 +1,225 @@
+/*#######################
+#### General Aspects ####
+#######################*/
+* {
+    box-sizing: border-box;
+    font-family: Verdana, Arial, Helvetica, sans-serif;
+}
+
+body {
+    background-color: #7ae3ff;
+    margin: 0;
+    display: flex;
+    flex-direction: column;
+    min-height: 100vh;
+}
+
+a,
+a:hover,
+a:active {
+    text-decoration: none;
+    color: #fff;
+    display: inline;
+}
+
+.cFlexResponsive {
+    display: flex;
+    flex-wrap: wrap;
+}
+
+.cGridResponsive {
+    display: grid;
+    grid-template-columns: repeat(auto-fit,
+            minmax(150px, 1fr));
+}
+
+.cabecera {
+    font-weight: bold;
+    text-align: center;
+}
+
+.centrar {
+    margin: 0 20%
+}
+
+.centrar-auto {
+    margin: 0 auto;
+}
+
+.texto {
+    font-size: 18px;
+}
+
+.texto-input {
+    font-size: medium;
+}
+
+.cBlanco {
+    color: white;
+}
+
+.bNaranja {
+    background-color: #fb985d;
+    border-radius: 1em;
+}
+
+.bNone {
+    background: none;
+    border: none;
+}
+
+.hTitulo {
+    margin: 0 auto 1% auto;
+    text-align: center;
+}
+
+/*###################
+#### Web Content ####
+###################*/
+.formularioFruta {
+    display: block;
+    margin-top: 3%;
+    margin-bottom: 3%;
+    padding: 1% 5%;
+}
+
+.formularioFruta>.contenido>.cGridResponsive {
+    grid-template-columns: 80% 20%;
+    margin-bottom: 3%;
+}
+
+.formularioFruta .cGridResponsive button {
+    justify-self: end;
+}
+
+.formularioFruta>.contenido {
+    margin: 5%;
+    display: grid;
+}
+
+#sinElementos {
+    height: minmax(150px, 1fr);
+    width: min-content;
+    margin: 50px auto;
+    padding: 5px;
+}
+
+.pop-up {
+    display: block;
+    width: 50%;
+    text-align: center;
+    margin: 2% auto;
+}
+
+/*########################
+#### More Information ####
+########################*/
+.formularioFruta #cabecera {
+    justify-self: center;
+}
+
+.formularioFruta #contenidoFruta {
+    margin-top: 30px;
+}
+
+.formularioFruta #contenidoFruta .cGridResponsive {
+    justify-content: center;
+    justify-items: center;
+    text-align: center;
+}
+
+.formularioFruta #contenedorImagen {
+    width: 90%;
+    height: 90%;
+    display: block;
+}
+
+.formularioFruta #descripcion {
+    text-align: justify;
+    padding: 15px;
+}
+
+.formularioFruta #nutrientes p {
+    text-align: center;
+    margin-bottom: 20px;
+}
+
+.formularioFruta #botones {
+    justify-content: space-evenly;
+}
+
+/*##########################
+#### About Fruit Object ####
+##########################*/
+.fruta {
+    background-color: white;
+    margin: 10%;
+    cursor: pointer;
+    display: grid;
+}
+
+.pNombre {
+    text-align: center;
+    height: 10%;
+    margin: 0 auto;
+}
+
+.pPrecio {
+    text-align: center;
+    height: 10%;
+    margin: 1% auto;
+    font-size: large;
+}
+
+.img {
+    width: 100%;
+    height: 100%;
+}
+
+#boton_agregar {
+    width: fit-content;
+    margin: 2% auto;
+}
+
+.bAgregar {
+    border-radius: 2em;
+    font-weight: bold;
+}
+
+.ocultar {
+    display: none;
+}
+
+/*######################
+##### Movil Device #####
+######################*/
+@media screen and (max-width:800px) {
+    .ocultar {
+        display: none;
+    }
+
+    .logo-frutas img {
+        display: block;
+        margin: 0 auto;
+        width: 90%;
+    }
+
+    .centrar {
+        margin: 30px 10%;
+    }
+
+    .pop-up {
+        width: 75%;
+    }
+}
+
+@media screen and (max-width:450px) {
+    .centrar {
+        margin: 15px 5%;
+        padding: 3%;
+    }
+
+    .texto-input {
+        font-size: small;
+    }
+}

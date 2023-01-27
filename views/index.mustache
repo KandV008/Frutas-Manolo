@@ -1,0 +1,167 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Frutas Manolo</title>
+  <link rel="icon" href="/imagenes/icon_web.png">
+  <!--Fuente para los iconos del Footer-->
+  <script src="https://kit.fontawesome.com/56e2237922.js" crossorigin="anonymous"></script>
+  <!--Bootstrap-->
+  <link rel="stylesheet" href="/CSS/bootstrap.min.css" />
+  <!--CSS-->
+  <link type="text/css" rel="stylesheet" href="/CSS/main.css" />
+  <link type="text/css" rel="stylesheet" href="/CSS/secondary.css" />
+  <link type="text/css" rel="stylesheet" href="/CSS/transitions.css" />
+</head>
+
+<body>
+  <!--#####################
+  ### Banner Navegación ###
+  ######################-->
+  <nav class="navbar navbar-expand-lg navbar-dark bg-primary fijo">
+    <div class="cNavBar centrar-auto">
+
+      <div class="navbar-nav cFlexResponsive" id="navbarColor01">
+        <div id="btn1">
+          <button type="button" class="bNone nav-link">
+            Inicio<span class="visually-hidden">(current)</span>
+          </button>
+        </div>
+        <div id="btn2">
+          <button onclick="changePageToContactUs();" type="button" class="bNone nav-link">
+            Contacto<span class="visually-hidden">(current)</span>
+          </button>
+        </div>
+        <div id="btn3">
+          <button onclick="changePageToAboutUs();" type="button" class="bNone nav-link">
+            Nosotros<span class="visually-hidden">(current)</span>
+          </button>
+        </div>
+      </div>
+
+      <header class="navbar-brand">
+        <img class="centrar-auto" src="/imagenes/logo_frutas.png" alt="imagen Logo">
+      </header>
+
+      <div class="navbar-nav me-auto">
+        <form class="d-flex">
+          <input class="form-control me-sm-2 texto-input" type="text" placeholder="Buscar">
+          <button class="btn btn-secundary my-2 my-sm-0 bBuscar bNone" type="button">
+            <img src="/imagenes/svg/lupa.svg" alt="">
+          </button>
+        </form>
+      </div>
+
+    </div>
+  </nav>
+
+  <!--##########################
+    ### Elemento de transición ###
+    ###########################-->
+
+  <div class="transicion" name="transicion"></div>
+
+  <!--#######################
+    ### Contenido de la Web ###
+    ########################-->
+  <!--Muestra los elementos de la Web-->
+  <div class="accesible" id="destInicio">
+    <div id="contenedor" class="contenedor centrar bNaranja cGridResponsive">
+
+      {{#fruits}}
+        <div id="{{name}}" class="fruta card border-primary" onclick="showMoreInformation('{{name}}');">
+            <div> 
+                <img class="card-img" src="{{image}}" alt="imagen {{name}}"/>
+            </div>
+            <h5 class="pNombre"> {{name}} </h5>
+            <div class="pPrecio"> {{price}} €/kg </div>
+        </div>
+      {{/fruits}}
+
+      {{^fruits}}
+        <div id="sinElementos" class="furta card border-primary">
+          <h5 class="pNombre">No hay elementos que mostrar</h5>
+        </div>
+      {{/fruits}}
+    </div>
+    
+    <!--Boton para añadir mas elementos-->
+    <footer id="boton_agregar">
+      <button class="bAgregar btn btn-primary" onclick="changeToFormulary('add');">
+        +
+      </button>
+      <!--Boton AJAX-->
+      <button id="loadMoreButton" class="bAgregar btn btn-primary" onclick='loadMore()'>
+        Cargar más
+      </button>
+      <!--Boton para borrar todo-->
+      <button type='button' class="bAgregar btn btn-primary" onclick='askDeleteAll();'>
+        Borrar todo
+      </button>
+    </footer>
+
+    <!--Mensaje de que ya se han cargado todas las frutas con AJAX-->
+      <div id="noMoreElements" class="alert alert-dismissible alert-primary pop-up ocultar">
+        <button type="button" class="btn-close" data-bs-dismiss="alert" onclick="quitAlert();"></button>
+        <strong>No hay más frutas/verduras que cargar</strong>
+      </div>
+    
+  </div>
+
+
+  <!--#################
+    ### Pie de Página ###
+    ##################-->
+  <footer class="pie-pagina bg-primary">
+    <div class="grupo1">
+      <div class="box cBlanco">
+        <h2>Síguenos</h2>
+        <div class="red-social">
+          <a href="https://es-la.facebook.com">
+            <i class="fa-brands fa-facebook fa-xl"></i>
+          </a>
+          <a href="https://www.instagram.com">
+            <i class="fa-brands fa-instagram fa-xl"></i>
+          </a>
+          <a href="https://twitter.com">
+            <i class="fa-brands fa-twitter fa-xl"></i>
+          </a>
+          <a href="https://github.com">
+            <i class="fa-brands fa-github fa-xl"></i>
+          </a>
+        </div>
+      </div>
+      <div class="box cBlanco">
+        <h2>Reconocimientos</h2>
+        <div class="asociaciones cFlexResponsive">
+          <a id="aso1" href="https://launicaasociacion.es">
+            <img src="/imagenes/asociaciones/asociacion_CAM.jpg" alt="asociacion_CAM">
+          </a>
+          <a href="http://www.adefrutas.com">
+            <img src="/imagenes/asociaciones/asociacion_Adefruta.png" alt="asociacion_Adefruta">
+          </a>
+          <a href="https://www.mincotur.gob.es/es-es/Paginas/index.aspx">
+            <img src="/imagenes/asociaciones/ministerio_de_ICT _espanyol.png" alt="ministerio_de_ICT_espanyol">
+          </a>
+        </div>
+      </div>
+    </div>
+    <div class="grupo2 cBlanco">
+      <small class="box">
+        &copy; 2022 All rights reserved
+      </small>
+      <small>
+        The template is from <a href="https://bootswatch.com/united/">bootswatch</a>
+      </small>
+    </div>
+  </footer>
+  <!--JS-->
+  <script src="/main.js"></script>
+  <script src="/ajax.js"></script>
+
+</body>
+
+</html>

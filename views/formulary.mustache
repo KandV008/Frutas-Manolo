@@ -1,0 +1,199 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Frutas Manolo</title>
+    <link rel="icon" href="/imagenes/icon_web.png">
+    <!--Fuente para los iconos del Footer-->
+    <script src="https://kit.fontawesome.com/56e2237922.js" crossorigin="anonymous"></script>
+    <!--Bootstrap-->
+    <link rel="stylesheet" href="/CSS/bootstrap.min.css"/>
+    <!--CSS-->
+    <link type="text/css" rel="stylesheet" href="/CSS/main.css" />
+    <link type="text/css" rel="stylesheet" href="/CSS/secondary.css" />
+    <link type="text/css" rel="stylesheet" href="/CSS/transitions.css" />
+</head>
+
+<body onload="onloadOperations('{{mode}}', '{{valuesToEdit.season}}', '{{valuesToEdit.type}}', '{{nutrients}}')">
+    <!--#####################
+    ### Banner Navegación ###
+    ######################-->
+    <nav class="navbar navbar-expand-lg navbar-dark bg-primary fijo">
+        <div class="cNavBar centrar-auto">
+
+            <div class="navbar-nav cFlexResponsive" id="navbarColor01">
+                <div id="btn1" class="ocultar">
+                    <button onclick="cambiarParteAccesible('destInicio');" type="button" class="bNone nav-link">
+                        Inicio<span class="visually-hidden">(current)</span>
+                    </button>
+                </div>
+                <div id="btn2" class="ocultar">
+                    <button onclick="cambiarParteAccesible('destContacto');" type="button" class="bNone nav-link">
+                        Contacto<span class="visually-hidden">(current)</span>
+                    </button>
+                </div>
+                <div id="btn3" class="ocultar">
+                    <button onclick="cambiarParteAccesible('destNosotros');" type="button" class="bNone nav-link">
+                        Nosotros<span class="visually-hidden">(current)</span>
+                    </button>
+                </div>
+            </div>
+
+            <header class="navbar-brand">
+                <img class="centrar-auto" src="/imagenes/logo_frutas.png" alt="imagen Logo">
+            </header>
+
+            <div class="navbar-nav me-auto ocultar">
+                <form class="d-flex">
+                    <input class="form-control me-sm-2 texto-input" type="text" placeholder="Buscar">
+                    <button class="btn btn-secundary my-2 my-sm-0 bBuscar bNone" type="button">
+                        <img src="/imagenes/svg/lupa.svg" alt="">
+                    </button>
+                </form>
+            </div>
+
+        </div>
+    </nav>
+
+    <!--##########################
+    ### Elemento de transición ###
+    ###########################-->
+
+    <div class="transicion" name="transicion"></div>
+
+    <!--############################################
+    ### Formulario para añadir el nuevo elemento ###
+    #############################################-->
+    <form action="/{{mode}}" method="post" enctype="multipart/form-data" class="formularioFruta centrar bNaranja">
+        <div class="contenido">
+            <div class="cGridResponsive">
+                <h4 class="cBlanco" id="titleForm"></h4>
+                <button id="insercion" type="reset" class="btn-close" aria-label="Close"
+                    onclick="returnBack('{{valuesToEdit.name}}')"></button>
+            </div>
+            <!--Nombre-->
+            <div class="form-floating mb-3 texto-input">
+                <input id="nombreFruta" class="form-control" type="text" placeholder="Nombre"
+                    aria-label="default input example" required
+                    name="fruitName" value="{{valuesToEdit.name}}">
+                <label for="floatingInput">¿Qué producto va a añadir?</label>
+            </div>
+            <!--Imagen-->
+            <div class="form mb-3 texto-input">
+                <p id="textFileInput" class="texto cBlanco"></p>    
+                <input class="form-control" type="file" id="imagenFruta" 
+                name="fruitImage">
+            </div>
+            <!--Precio-->
+            <div class="form-floating mb-3 texto-input">
+                <input id="precioKiloFruta" class="form-control" type="number" min="0" step="0.01" placeholder="€/kg"
+                    aria-label="default input example" required
+                    name="fruitPrice" value="{{valuesToEdit.price}}">
+                <label for="floatingInput">¿Cuál es su precio por kilo?</label>
+            </div>
+            <!--Procedencia-->
+            <div class="form-floating mb-3 texto-input">
+                <input id="origenFruta" class="form-control" type="text" placeholder="Nombre"
+                    aria-label="default input example" required
+                    name="fruitOrigin" value="{{valuesToEdit.origin}}">
+                <label for="floatingInput">¿De dónde proviene el producto?</label>
+            </div>
+            <!--Temporada-->
+            <div class="form-floating mb-3 texto-input">
+                <select id="temporadaFruta" class="form-select" aria-label="Default select example" 
+                name="fruitSeason" required>
+                    <option selected></option>
+                    <option value="Primavera">Primavera</option>
+                    <option value="Verano">Verano</option>
+                    <option value="Otoño">Otoño</option>
+                    <option value="Invierno">Invierno</option>
+                </select>
+                <label for="floatingSelect">¿De que temporada es?</label>
+            </div>
+            <!--Tipo-->
+            <div class="form-floating mb-3 texto-input">
+                <select id="tipoFruta" class="form-select" aria-label="Default select example" 
+                name="fruitType" required>
+                    <option selected></option>
+                    <option value="Fruta">Fruta</option>
+                    <option value="Verdura">Verdura</option>
+                </select>
+                <label for="floatingSelect">¿Es una fruta o una verdura?</label>
+            </div>
+            <!--Descripción-->
+            <div class="form-floating texto-input">
+                <textarea id="descripcionFruta" class="form-control" id="floatingTextarea2" style="height: 100px"
+                    placeholder="Añada más detalles (opcional)"
+                    name="fruitDescription" required>{{valuesToEdit.description}}</textarea>
+                <label for="floatingTextarea2">Añada más detalles</label>
+            </div>
+            <!--Nutrientes-->
+            <hr class="cBlanco" />
+            <p class="texto cBlanco">¿Cuáles son sus nutrientes?</p>
+            <form name="arrayNutrients">
+                <div id="divNutrientesForm">
+                    <!--Aquí van los nutrientes-->
+                </div>
+            </form>
+            <!--Botones-->
+            <button type="button" class="btn btn-secondary" onclick="addNutrient();">Añadir nutriente</button>
+            <hr class="cBlanco" />
+            <button id="saveButton" type="button" class="btn btn-primary" onmousedown="uploadInformation()">Guardar</button>
+        </div>
+    </form>
+    <!--#################
+    ### Pie de Página ###
+    ##################-->
+    <footer class="pie-pagina bg-primary">
+        <div class="grupo1">
+            <div class="box cBlanco">
+                <h2>Síguenos</h2>
+                <div class="red-social">
+                    <a href="https://es-la.facebook.com">
+                        <i class="fa-brands fa-facebook fa-xl"></i>
+                    </a>
+                    <a href="https://www.instagram.com">
+                        <i class="fa-brands fa-instagram fa-xl"></i>
+                    </a>
+                    <a href="https://twitter.com">
+                        <i class="fa-brands fa-twitter fa-xl"></i>
+                    </a>
+                    <a href="https://github.com">
+                        <i class="fa-brands fa-github fa-xl"></i>
+                    </a>
+                </div>
+            </div>
+            <div class="box cBlanco">
+                <h2>Reconocimientos</h2>
+                <div class="asociaciones cFlexResponsive">
+                    <a id="aso1" href="https://launicaasociacion.es">
+                        <img src="/imagenes/asociaciones/asociacion_CAM.jpg" alt="asociacion_CAM">
+                    </a>
+                    <a href="http://www.adefrutas.com">
+                        <img src="/imagenes/asociaciones/asociacion_Adefruta.png" alt="asociacion_Adefruta">
+                    </a>
+                    <a href="https://www.mincotur.gob.es/es-es/Paginas/index.aspx">
+                        <img src="/imagenes/asociaciones/ministerio_de_ICT _espanyol.png"
+                            alt="ministerio_de_ICT_espanyol">
+                    </a>
+                </div>
+            </div>
+        </div>
+        <div class="grupo2 cBlanco">
+            <small class="box">
+                &copy; 2022 All rights reserved
+            </small>
+            <small>
+                The template is from <a href="https://bootswatch.com/united/">bootswatch</a>
+            </small>
+        </div>
+    </footer>
+    <!--JS-->
+    <script src="/main.js"></script>
+    <script src="/form.js"></script>
+</body>
+
+</html>

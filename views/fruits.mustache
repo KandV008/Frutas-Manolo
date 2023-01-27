@@ -1,0 +1,9 @@
+{{#fruits}}
+    <div id="{{name}}" class="fruta card border-primary" onclick="showMoreInformation('{{name}}');">
+        <div> 
+            <img class="card-img" src="{{image}}" alt="imagen {{name}}"/>
+        </div>
+        <h5 class="pNombre"> {{name}} </h5>
+        <div class="pPrecio"> {{price}} €/kg </div>
+    </div>
+{{/fruits}}

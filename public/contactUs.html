@@ -1,0 +1,157 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Frutas Manolo</title>
+  <link rel="icon" href="imagenes/icon_web.png">
+  <!--Fuente para los iconos del Footer-->
+  <script src="https://kit.fontawesome.com/56e2237922.js" crossorigin="anonymous"></script>
+  <!--Bootstrap-->
+  <link rel="stylesheet" href="CSS/bootstrap.min.css">
+  </link>
+  <!--CSS-->
+  <link type="text/css" rel="stylesheet" href="CSS/main.css" />
+  <link type="text/css" rel="stylesheet" href="CSS/secondary.css" />
+  <link type="text/css" rel="stylesheet" href="CSS/transitions.css" />
+</head>
+
+<body>
+  <!--#####################
+  ### Banner Navegación ###
+  ######################-->
+  <nav class="navbar navbar-expand-lg navbar-dark bg-primary fijo">
+    <div class="cNavBar centrar-auto">
+
+      <div class="navbar-nav cFlexResponsive" id="navbarColor01">
+        <div id="btn1">
+          <button onclick="changePageToIndex();" type="button" class="bNone nav-link">
+            Inicio<span class="visually-hidden">(current)</span>
+          </button>
+        </div>
+        <div id="btn2">
+          <button onclick="" type="button" class="bNone nav-link">
+            Contacto<span class="visually-hidden">(current)</span>
+          </button>
+        </div>
+        <div id="btn3">
+          <button onclick="changePageToAboutUs();" type="button" class="bNone nav-link">
+            Nosotros<span class="visually-hidden">(current)</span>
+          </button>
+        </div>
+      </div>
+
+      <header class="navbar-brand">
+        <img class="centrar-auto" src="imagenes/logo_frutas.png" alt="imagen Logo">
+      </header>
+
+      <div class="navbar-nav me-auto ocultar">
+        <form class="d-flex">
+          <input class="form-control me-sm-2 texto-input" type="text" placeholder="Buscar">
+          <button class="btn btn-secundary my-2 my-sm-0 bBuscar bNone" type="button">
+            <img src="imagenes/svg/lupa.svg" alt="">
+          </button>
+        </form>
+      </div>
+
+    </div>
+  </nav>
+
+  <!--##########################
+  ### Elemento de transición ###
+  ###########################-->
+
+  <div class="transicion" name="transicion"></div>
+
+  <!--######################################
+    ### Destinos de la Barra de Navegación ###
+    #######################################-->
+
+  <div class="accesible" id="destContacto">
+    <section class="bNaranja" id="contacto">
+      <section>
+        <h2 class="cBlanco hTitulo">Contáctenos</h2>
+        <iframe 
+          src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d1105.2595990598666!2d-3.8948894635035587!3d40.427656597281505!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0xd418537f8f1651f%3A0xe3e198e9f1efab7a!2sC%2F%20Valle%20de%20Tena%2C%2028%2C%2028669%20Boadilla%20del%20Monte%2C%20Madrid!5e0!3m2!1ses!2ses!4v1674733824084!5m2!1ses!2ses" 
+          width="600" height="450" style="border:0;" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade">
+        </iframe>
+      </section>
+      <form action="https://formsubmit.co/frutasmanolourjc@gmail.com" method="POST">
+        <h2 class="cBlanco">Escríbanos</h2>
+        <div class="form-floating mb-2">
+          <input type="email" class="form-control" id="floatingInput" placeholder="Correo electrónico" name="email" required>
+          <label for="floatingInput">Correo electrónico</label>
+        </div>
+
+        <div class="form-floating mb-2">
+          <input class="form-control" type="text" aria-label="default input example" placeholder="Asunto del Mensaje" name="asunto" required>
+          <label for="floatingInput">Asunto del Mensaje</label>
+        </div>
+
+        <div class="form-floating mb-2">
+          <textarea class="form-control" id="floatingTextarea2" style="height: 100px"
+            placeholder="¿Cómo podemos ayudarle?" name="help" required></textarea>
+          <label for="floatingInput">¿Cómo podemos ayudarle?</label>
+        </div>
+
+        <button type="submit" class="btn btn-primary">Enviar</button>
+
+        <input type="hidden" name="_next" value="http://localhost:3000/"/>
+        <input type="hidden" name="_captcha" value="false"/>
+      </form>
+    </section>
+  </div>
+  <!--#################
+    ### Pie de Página ###
+    ##################-->
+  <footer class="pie-pagina bg-primary">
+    <div class="grupo1">
+      <div class="box cBlanco">
+        <h2>Síguenos</h2>
+        <div class="red-social">
+          <a href="https://es-la.facebook.com">
+            <i class="fa-brands fa-facebook fa-xl"></i>
+          </a>
+          <a href="https://www.instagram.com">
+            <i class="fa-brands fa-instagram fa-xl"></i>
+          </a>
+          <a href="https://twitter.com">
+            <i class="fa-brands fa-twitter fa-xl"></i>
+          </a>
+          <a href="https://github.com">
+            <i class="fa-brands fa-github fa-xl"></i>
+          </a>
+        </div>
+      </div>
+      <div class="box cBlanco">
+        <h2>Reconocimientos</h2>
+        <div class="asociaciones cFlexResponsive">
+          <a id="aso1" href="https://launicaasociacion.es">
+            <img src="imagenes/asociaciones/asociacion_CAM.jpg" alt="asociacion_CAM">
+          </a>
+          <a href="http://www.adefrutas.com">
+            <img src="imagenes/asociaciones/asociacion_Adefruta.png" alt="asociacion_Adefruta">
+          </a>
+          <a href="https://www.mincotur.gob.es/es-es/Paginas/index.aspx">
+            <img src="imagenes/asociaciones/ministerio_de_ICT _espanyol.png" alt="ministerio_de_ICT_espanyol">
+          </a>
+        </div>
+      </div>
+    </div>
+    <div class="grupo2 cBlanco">
+      <small class="box">
+        &copy; 2022 All rights reserved
+      </small>
+      <small>
+        The template is from <a href="https://bootswatch.com/united/">bootswatch</a>
+      </small>
+    </div>
+  </footer>
+  <!--JS-->
+  <script src="main.js"></script>
+
+</body>
+
+</html>

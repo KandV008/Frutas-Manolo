@@ -1,0 +1,208 @@
+/*#########################
+### Barra de Navegación ###
+#########################*/
+.accesible {
+    margin-top: 3%
+}
+
+.cNavBar {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    justify-content: center;
+}
+
+.cNavBar .cFlexResponsive {
+    align-items: center;
+    flex-direction: row;
+}
+
+.navbar-brand img {
+    display: block;
+    width: 50%;
+}
+
+.bBuscar {
+    max-width: 10%;
+    margin: auto 0;
+}
+
+.bBuscar img {
+    width: 80%;
+}
+
+.cNavBar form {
+    justify-content: flex-end;
+}
+
+.cNavBar form input {
+    width: 45%;
+    height: 65%;
+    margin: auto 0;
+}
+
+@media screen and (max-width:1200px) {
+    .bBuscar img {
+        width: 120%;
+        padding: none;
+    }
+}
+
+@media screen and (max-width:990px) {
+    .cNavBar {
+        display: block;
+    }
+
+    .cNavBar .cFlexResponsive {
+        justify-content: space-evenly;
+    }
+
+    .navbar-brand img {
+        width: 40%;
+    }
+
+    .cNavBar form input {
+        width: 80%;
+        height: 25%;
+        margin: auto 0;
+    }
+
+    .bBuscar img {
+        width: 30%;
+    }
+
+    .bBuscar {
+        max-width: 15%;
+        max-height: 15%;
+    }
+}
+
+@media screen and (max-width:550px) {
+    .navbar-brand img {
+        width: 60%;
+    }
+
+    .bBuscar img {
+        width: 60%;
+    }
+
+    .bBuscar {
+        max-width: 15%;
+        max-height: 15%;
+    }
+}
+
+/*#######################
+### Destino: Contacto ###
+#######################*/
+#contacto {
+    margin: 0 auto;
+    padding: 1em;
+    margin-bottom: 3%;
+    width: 80%;
+
+    display: grid;
+    grid-template-columns: repeat(auto-fit,
+            minmax(250px, 1fr));
+}
+
+#contacto iframe {
+    border-radius: 1em;
+    width: 95%;
+    height: 70%;
+}
+
+#contacto form {
+    width: 90%;
+    margin: auto;
+}
+
+/*#######################
+### Destino: Nosotros ###
+#######################*/
+#nosotros {
+    margin: auto;
+    padding: 1% 0;
+    margin-bottom: 3%;
+    width: 80%;
+    text-align: justify;
+}
+
+#nosotros p {
+    padding: 1% 10%;
+    font-size: 20px;
+}
+
+@media screen and (max-width:700px) {
+    #nosotros {
+        padding: 3%;
+    }
+
+    #nosotros p {
+        padding: 3% 10%;
+        font-size: 15px;
+    }
+
+    #contacto form button {
+        display: block;
+        margin: 0 auto;
+    }
+
+    #contacto {
+        padding: 3%;
+        font-size: 13px;
+    }
+}
+
+@media screen and (max-width:320px) {
+    #contacto {
+        size: 60%;
+    }
+}
+
+/*#####################
+#### Pie de Página ####
+#####################*/
+.pie-pagina {
+    width: 100%;
+    margin-top: auto;
+}
+
+.pie-pagina .grupo1 {
+    width: 100%;
+    max-width: 1200px;
+    margin: 1% auto;
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+}
+
+.pie-pagina .grupo1 .box {
+    text-align: center;
+    margin-bottom: 6%;
+}
+
+.pie-pagina .grupo1 .box .red-social i {
+    padding: 3%;
+}
+
+.pie-pagina .grupo1 .asociaciones {
+    justify-content: center;
+    align-content: center;
+}
+
+.pie-pagina .grupo1 .asociaciones a img {
+    width: 100px;
+    padding: 2%;
+}
+
+.pie-pagina .grupo2 {
+    text-align: center;
+    display: block;
+}
+
+@media screen and (max-width:700px) {
+    .pie-pagina .grupo1 {
+        width: 90%;
+        grid-template-columns: repeat(1, 1fr);
+        margin: 2% auto;
+    }
+}

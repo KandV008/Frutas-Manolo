@@ -1,0 +1,25 @@
+{
+  "name": "frutas-manolo-package",
+  "version": "1.0.0",
+  "description": "Modules and packages used by our websyte",
+  "type": "module",
+  "main": "main.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/KandV008/Frutas-Manolo.git"
+  },
+  "author": "Takek Elshami, Sergio De Oro and Ikar Mrtnz de Liz",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/KandV008/Frutas-Manolo/issues"
+  },
+  "homepage": "https://github.com/KandV008/Frutas-Manolo#readme",
+  "dependencies": {
+    "express": "^4.18.2",
+    "express-fileupload": "^1.4.0",
+    "mustache-express": "^1.3.2"
+  }
+}

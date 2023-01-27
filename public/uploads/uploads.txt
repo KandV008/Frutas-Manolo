@@ -1,0 +1,3 @@
+This directory store all the images the user uploads.
+
+It's necesary delete all the files before commit at github.

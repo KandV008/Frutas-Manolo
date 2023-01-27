@@ -1,0 +1,15 @@
+.transicion {
+    position: fixed;
+    top: 0;
+    left: -100%;
+    width: 100%;
+    bottom: 99%;
+    z-index: 101;
+    /*Esto se añade para que el div de la transición esté delante de todo*/
+    background-color: #212121;
+    transition: 0.5s ease-in-out;
+}
+
+.transicion.esta-activa {
+    left: 0px;
+}
