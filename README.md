@@ -68,3 +68,4 @@ Allow to add, edit and delete all the fruits/veggies you want.
 
 ![moreInfo](https://github.com/KandV008/Frutas-Manolo/blob/main/public/imagenes/forREADME/moreInfo.png)
 ###### Figure 3: More Information Page
+
